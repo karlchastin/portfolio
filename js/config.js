@@ -10,67 +10,74 @@ export const defaultLayout = {
     showDiscordStatus: false, showSteamStatus: false, showDiscordBadges: false, 
     showDiscordServers: false, showMusicActivity: false, showMusicPlaylists: false, 
     showInstaHighlights: false, showInstaStats: false, showLocInsta: false, showInstaPosts: false, 
-    showFacebookStats: false, showLocFacebook: false, showPreferences: false, showCards: []
+    showFacebookStats: false, showLocFacebook: false, showPreferences: false, 
+    
+    showHome: false, showAbout: false, showTech: false, 
+    showCertifications: false, showExperience: false, 
+    showBlog: false, showContact: false, showCards: []
 };
 
 export const profiles = {
     home: {
         avatar: "./assets/Home%20Tab%20Avatar.webp",
         name: "chas", username: "", bio: "Tell me, do gods bleed?",
-        layout: { ...defaultLayout, showDiscord: true, showMusic: true, showLocHome: true, showDiscordStatus: true, showCards: ['card-2-container', 'card-3-container'] }
+        layout: { 
+            ...defaultLayout, 
+            showHome: true, 
+            showDiscord: true, 
+            showMusic: true, 
+            showLocHome: true, 
+            showDiscordStatus: true, 
+            showCards: ['card-2', 'card-3', 'card-4'] 
+        }
     },
-    github: {
-        avatar: "https://avatars.githubusercontent.com/u/244555740?v=4", 
-        name: "Karl Chastin Delfin", 
-        username: "@karlchastin",
-        bio: "Loading live GitHub profile...", 
-        layout: { ...defaultLayout, showGithubStats: true, showGithubContribs: true, showGithubRepos: true, showLocGithub: true, showGithubAchievements: true, showCards: ['card-2-container', 'card-3-container', 'card-4-container'] }
-    },
-    email: {
-        avatar: "https://lh3.googleusercontent.com/a/ACg8ocKT0TRPKQOi9HhhEUz48ZwapMWtuFTnsCNewew3vTrVOjs3F8jtsA=s1000-c",
-        name: "Karl Chastin Delfin", username: "Choose your contact intention",
-        bio: "You can hover over your preferred contact method, and select to be redirected to your default email provider.",
-        layout: { ...defaultLayout, showTimeLoc: true, showEmailActions: true, showCards: ['card-2-container'] }
-    },
-    steam: {
+    about: {
         avatar: "./assets/Home%20Tab%20Avatar.webp",
-        name: "Loading...", username: "NotChztn",
-        bio: "Welcome to my Steam profile. Let's play some games.", 
-        layout: { ...defaultLayout, showLocSteam: true, showSteamExtra: true, showSteamActivity: true, showSteamStats: true, showSteamReview: true, showSteamStatus: true, showCards: ['card-2-container', 'card-3-container', 'card-4-container'] }
+        name: "About Me", username: "@karlchastin", bio: "A little bit about who I am and what I do.",
+        layout: { ...defaultLayout, showAbout: true }
     },
-    discord: {
+    tech: {
         avatar: "./assets/Home%20Tab%20Avatar.webp",
-        name: "Discord", username: "@chas",
-        bio: "i refuse.",
-        layout: { ...defaultLayout, showLocDiscord: true, showDiscordStatus: true, showDiscordBadges: true, showDiscordServers: true, showCards: ['card-4-container'] }
+        name: "Tech Stack", username: "Tools & Languages", bio: "The technologies I currently work with.",
+        layout: { ...defaultLayout, showTech: true }
     },
-    music: {
-        avatar: "./assets/Apple%20Music%20Avatar.webp",
-        name: "Karl Chastin Delfin", username: "@karlchastin",
-        bio: "i am not responsible for these playlist names, they're just funny.",
-        layout: { ...defaultLayout, showLocMusic: true, showMusicActivity: true, showMusicPlaylists: true, showCards: ['card-3-container', 'card-4-container'] }
-    },
-    instagram: {
-        avatar: "./assets/Home%20Tab%20Avatar.webp", 
-        name: "Loading...", 
-        username: "@karlchastin",
-        bio: "Loading live Instagram profile...",
-        layout: { ...defaultLayout, showLocInsta: true, showInstaStats: true, showInstaHighlights: true, showInstaPosts: true, showCards: ['card-2-container', 'card-3-container', 'card-4-container'] }
-    },
-    facebook: {
-        avatar: "./assets/Home%20Tab%20Avatar.webp", 
-        name: "Loading...", 
-        username: "Facebook",
-        bio: "Loading live Facebook profile...",
-        layout: { ...defaultLayout, showLocFacebook: true, showFacebookStats: true, showCards: ['card-3-container'] }
-    },
-    preferences: {
+    certifications: {
         avatar: "./assets/Home%20Tab%20Avatar.webp",
-        name: "Preferences", username: "System Settings",
-        bio: "My per-game preferences, mod configurations, and custom setups.",
-        layout: { ...defaultLayout, showPreferences: true, showCards: ['card-2-container'] }
+        name: "Certifications", username: "Achievements", bio: "Professional certifications and courses.",
+        layout: { ...defaultLayout, showCertifications: true }
+    },
+    experience: {
+        avatar: "./assets/Home%20Tab%20Avatar.webp",
+        name: "Experience", username: "Work History", bio: "My professional journey.",
+        layout: { ...defaultLayout, showExperience: true }
+    },
+    blog: {
+        avatar: "./assets/Home%20Tab%20Avatar.webp",
+        name: "Blog", username: "Thoughts & Updates", bio: "Welcome to my digital garden.",
+        layout: { ...defaultLayout, showBlog: true }
+    },
+    contact: {
+        avatar: "./assets/Home%20Tab%20Avatar.webp",
+        name: "Contact", username: "Let's connect", bio: "Feel free to reach out across these platforms.",
+        layout: { ...defaultLayout, showContact: true }
     }
 };
+
+export const techStack = [
+    { name: "HTML", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { name: "CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
+    { name: "Lua", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/lua/lua-original.svg" }
+];
+
+export const certifications = [
+    { name: "Sample Certification", desc: "Placeholder description for your certification.", banner: "linear-gradient(90deg, #1e3c72, #2a5298)" }
+];
+
+export const experience = [
+    { name: "Bartender", idName: "Ciel Noir", desc: "Placeholder description for your experience.", banner: "linear-gradient(90deg, #ff0000, #330000)" }
+];
 
 export const FATAL_LYRICS = [
     { time: 0.00, text: "(Instrumental)" },

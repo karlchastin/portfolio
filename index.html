@@ -37,14 +37,12 @@
                     <div id="glass-right" class="glass-panel"></div>
 
                     <a href="#" class="tab active show-text" data-tab="home"><i data-icon="tab-home"></i><span class="tab-text">Home</span></a>
-                    <a href="#" class="tab" data-tab="github"><i data-icon="tab-github"></i><span class="tab-text">GitHub</span></a>
-                    <a href="#" class="tab" data-tab="email"><i data-icon="tab-email"></i><span class="tab-text">Email</span></a>
-                    <a href="#" class="tab" data-tab="steam"><i data-icon="tab-steam"></i><span class="tab-text">Steam</span></a>
-                    <a href="#" class="tab" data-tab="discord"><i data-icon="tab-discord"></i><span class="tab-text">Discord</span></a>
-                    <a href="#" class="tab" data-tab="music"><i data-icon="tab-music"></i><span class="tab-text">Apple Music</span></a>
-                    <a href="#" class="tab" data-tab="instagram"><i data-icon="tab-instagram"></i><span class="tab-text">Instagram</span></a>
-                    <a href="#" class="tab" data-tab="facebook"><i data-icon="tab-facebook"></i><span class="tab-text">Facebook</span></a>
-                    <a href="#" class="tab" data-tab="preferences"><i data-icon="tab-preferences"></i><span class="tab-text">Preferences</span></a>
+                    <a href="#" class="tab" data-tab="about"><i data-icon="tab-about"></i><span class="tab-text">About</span></a>
+                    <a href="#" class="tab" data-tab="tech"><i data-icon="tab-tech"></i><span class="tab-text">Tech Stack</span></a>
+                    <a href="#" class="tab" data-tab="certifications"><i data-icon="tab-certifications"></i><span class="tab-text">Certifications</span></a>
+                    <a href="#" class="tab" data-tab="experience"><i data-icon="tab-experience"></i><span class="tab-text">Experience</span></a>
+                    <a href="#" class="tab" data-tab="blog"><i data-icon="tab-blog"></i><span class="tab-text">Blog</span></a>
+                    <a href="#" class="tab" data-tab="contact"><i data-icon="tab-contact"></i><span class="tab-text">Contact</span></a>
                 </div>
             </div>
         </div>
@@ -67,34 +65,66 @@
             </div>
             
             <div id="dynamic-info" class="transition-container">
-                <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                    <h1 class="name" id="profile-name" style="margin-top: 0; margin-bottom: 0;">chas</h1>
-                    <div id="steam-level-display" style="display: none; align-items: center;">
-                        <div class="header-divider"></div><span class="level-label">LEVEL</span><div class="lvl-circle lvl-0" id="steam-live-level">--</div>
+    
+                <div id="home-wrapper">
+                    <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                        <h1 class="name" id="profile-name" style="margin-top: 0; margin-bottom: 0;">chas</h1>
+                        <div id="steam-level-display" style="display: none; align-items: center;">
+                            <div class="header-divider"></div><span class="level-label">LEVEL</span><div class="lvl-circle lvl-0" id="steam-live-level">--</div>
+                        </div>
+                    </div>
+
+                    <div id="profile-username" class="username-display"></div>
+                    <p class="bio" id="profile-bio">Tell me, do gods bleed?</p>
+                    
+                    <div id="discord-status-wrapper" class="steam-status-row" style="display: none; margin-top: 15px; margin-bottom: 15px;">
+                        <div class="steam-status offline" id="discord-live-status">Fetching live status...</div>
+                    </div>
+                    <div id="steam-status-wrapper" class="steam-status-row" style="display: none; margin-top: 15px; margin-bottom: 15px;">
+                        <div class="steam-status offline" id="steam-live-status">Fetching live status...</div>
+                    </div>
+                    
+                    <div id="discord-badges-wrapper" style="display: none;">
+                        <div class="repo-header">Badges</div>
+                        <div class="achievement-wrapper" id="discord-badges-container" style="margin-bottom: 20px;"></div>
                     </div>
                 </div>
 
-                <div id="profile-username" class="username-display"></div>
-                <p class="bio" id="profile-bio">Tell me, do gods bleed?</p>
-                
-                <div id="discord-status-wrapper" class="steam-status-row" style="display: none; margin-top: 15px; margin-bottom: 15px;">
-                    <div class="steam-status offline" id="discord-live-status">Fetching live status...</div>
-                </div>
-                <div id="steam-status-wrapper" class="steam-status-row" style="display: none; margin-top: 15px; margin-bottom: 15px;">
-                    <div class="steam-status offline" id="steam-live-status">Fetching live status...</div>
-                </div>
-                
-                <div id="discord-badges-wrapper" style="display: none;">
-                    <div class="repo-header">Badges</div>
-                    <div class="achievement-wrapper" id="discord-badges-container" style="margin-bottom: 20px;"></div>
+                <div id="about-wrapper" style="display: none;">
+                    <div class="repo-header">About Me</div>
+                    <p style="color: #aaa; line-height: 1.6; margin-bottom: 15px;">I'm Karl Chastin Delfin, though most people just call me Chas. I'm currently a second-year BSIT student at St. Dominic College of Asia, balancing my coursework with my shifts as a bartender at Ciel Noir. When I'm not mixing drinks or hitting the books, my time goes into software development and network engineering, always looking for the next puzzle to crack.</p>
+                    <p style="color: #aaa; line-height: 1.6;">My aspirations lie heavily in pushing the boundaries of what I can build. I'm highly interested in developing local AI solutions and mastering network infrastructure. Ultimately, I want to create seamless, high-performance applications that bridge the gap between complex backend engineering and clean, user-friendly design.</p>
                 </div>
 
-                <div id="github-achievements-wrapper" style="display: none; margin-top: 35px;">
-                    <div class="repo-header">GitHub Achievements</div>
-                    <div class="achievement-wrapper">
-                        <div class="achievement-badge" data-tooltip="Public Sponsor<span class='tt-desc'>Unlocked March 31, 2026</span>">
-                            <img src="https://github.githubassets.com/images/modules/profile/achievements/public-sponsor-default.png" alt="Public Sponsor">
-                        </div>
+                <div id="tech-stack-wrapper" style="display: none;">
+                    <div class="repo-header">Tech Stack</div>
+                    <div class="achievement-wrapper" id="tech-stack-list"></div>
+                </div>
+
+                <div id="certifications-wrapper" class="repo-layout" style="display: none;">
+                    <div class="repo-header">Certifications</div>
+                    <div id="certifications-list" class="repo-grid"></div>
+                </div>
+
+                <div id="experience-wrapper" class="repo-layout" style="display: none;">
+                    <div class="repo-header">Experience</div>
+                    <div id="experience-list" class="repo-grid"></div>
+                </div>
+
+                <div id="blog-wrapper" style="display: none;">
+                    <div class="repo-header">Blog</div>
+                    <p style="color: #aaa;">Nothing here yet. Check back later!</p>
+                </div>
+
+                <div id="contact-wrapper" style="display: none;">
+                    <div class="repo-header">Contact Methods</div>
+                    <div class="email-buttons-grid">
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="email-btn">
+                            <div class="icon"><i data-icon="tab-linkedin"></i></div><span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/karlchastin" target="_blank" class="email-btn">
+                            <div class="icon"><i data-icon="tab-github"></i></div><span>GitHub</span>
+                        </a>
                     </div>
                 </div>
             </div>

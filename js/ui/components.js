@@ -1,5 +1,5 @@
 import { $ } from '../utils/dom.js';
-import { featuredRepos, featuredServers, appleMusicPlaylists, instagramHighlights } from '../config.js';
+import { techStack, certifications, experience } from '../config.js';
 
 const renderList = (id, data, mapper) => {
     const el = $(id);
@@ -20,13 +20,15 @@ const createGenericCard = (item) => `
     </div>`;
 
 export function renderAllComponents() {
-    renderList('featured-repo-list', featuredRepos, createGenericCard);
-    renderList('featured-server-list', featuredServers, createGenericCard);
-    renderList('apple-music-playlists', appleMusicPlaylists, createGenericCard);
+    const techList = $('tech-stack-list');
+    if (techList) {
+        techList.innerHTML = techStack.map(tech => `
+            <div class="achievement-badge" data-tooltip="${tech.name}">
+                <img src="${tech.icon}" alt="${tech.name}">
+            </div>
+        `).join('');
+    }
 
-    renderList('ig-highlights-list', instagramHighlights, h => `
-        <a href="${h.url}" target="_blank" class="ig-highlight-item">
-            <div class="ig-highlight-ring"><img src="${h.preview}" loading="lazy" class="ig-highlight-img" alt="${h.title}" referrerpolicy="no-referrer"></div>
-            <span class="ig-highlight-title">${h.title}</span>
-        </a>`);
+    renderList('certifications-list', certifications, createGenericCard);
+    renderList('experience-list', experience, createGenericCard);
 }

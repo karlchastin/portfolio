@@ -4,501 +4,236 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karl Chastin Delfin - Developer Portfolio</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-primary: #1f2328;
-            --text-secondary: #656d76;
-            --link-color: #0969da;
-            --border-color: #d0d7de;
-            --btn-bg: #f6f8fa;
-            --card-hover: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             font-family: Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.5;
+            background-color: #ffffff;
+            color: #1f2328;
             -webkit-font-smoothing: antialiased;
         }
 
-        .container {
+        .container-custom {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 24px;
-            display: grid;
-            grid-template-columns: 296px 1fr;
-            gap: 24px;
         }
 
-        .profile-sidebar {
-            position: relative;
-        }
+        .text-custom-link { color: #0969da; text-decoration: none; }
+        .text-custom-link:hover { text-decoration: underline; }
+        .text-muted-custom { color: #656d76; }
+        .border-custom { border-color: #d0d7de !important; }
+        .star-color { color: #e3b341; }
 
-        .avatar-container {
+        .avatar-profile {
             width: 100%;
-            margin-bottom: 16px;
-        }
-
-        .avatar {
-            width: 260px;
-            height: 260px;
+            max-width: 260px;
+            aspect-ratio: 1 / 1;
             border-radius: 20px; 
-            border: 1px solid var(--border-color);
             object-fit: cover;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png');
-            background-size: cover;
+            border: 1px solid #d0d7de;
+        }
+        .avatar-reviewer {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #d0d7de;
         }
 
-        .names {
-            margin-bottom: 16px;
-        }
-
-        .fullname {
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 1.25;
-            color: var(--text-primary);
-            display: block;
-        }
-
-        .bio {
-            font-size: 16px;
-            margin-bottom: 16px;
-            color: var(--text-primary);
-        }
-
-        .profile-details {
-            list-style: none;
-            font-size: 14px;
-            color: var(--text-primary);
-        }
-
-        .profile-details li {
-            margin-top: 4px;
-            display: flex;
-            align-items: center;
-        }
-
-        .profile-details i {
-            width: 16px;
-            margin-right: 8px;
-            color: var(--text-secondary);
-            text-align: center;
-        }
-
-        .social-divider {
-            height: 1px;
-            background-color: var(--border-color);
-            margin: 16px 0;
-        }
-
-        .social-link a {
-            color: var(--text-primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            word-break: break-all;
-        }
-        
-        .social-link a:hover {
-            color: var(--link-color);
-            text-decoration: underline;
-        }
-
-        .content-area {
-            padding-top: 8px;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 16px;
-            margin-top: 40px;
-        }
-
-        .section-header:first-of-type {
-            margin-top: 0;
-        }
-
-        .section-title {
-            font-size: 32px; 
-            font-weight: 700; 
-            margin: 0;
-        }
-
-        .view-more-btn {
-            font-size: 14px;
-            color: var(--link-color);
-            text-decoration: none;
-            font-weight: 400;
-            white-space: nowrap;
-        }
-
-        .view-more-btn:hover {
-            text-decoration: underline;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .project-card {
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
+        .card-hover {
             transition: box-shadow 0.2s ease;
-            background-color: #fff;
         }
-
-        .project-card:hover {
+        .card-hover:hover {
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         .project-banner {
-            width: 100%;
             height: 140px;
             object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
             background-color: #f6f8fa;
         }
 
-        .card-body {
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+        .profile-list i {
+            width: 20px;
+            text-align: center;
         }
-
-        .project-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-
-        .project-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--link-color);
-            text-decoration: none;
-        }
-
-        .project-title:hover {
-            text-decoration: underline;
-        }
-
-        .project-desc {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-            flex-grow: 1;
-            line-height: 1.5;
-        }
-
-        .project-meta {
-            display: flex;
-            align-items: center;
-            font-size: 12px;
-            color: var(--text-secondary);
-            gap: 16px;
-            margin-top: auto;
-        }
-
-        .reviews-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .review-card {
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 16px;
-            background-color: #ffffff;
-        }
-
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .reviewer-img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            margin-right: 10px;
-            border: 1px solid var(--border-color);
-        }
-
-        .reviewer-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .reviewer-name {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-
-        .review-role {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .review-stars {
-            color: #e3b341;
-            font-size: 12px;
-            margin-left: auto;
-        }
-
-        .review-text {
-            font-size: 14px;
-            color: var(--text-primary);
-            font-style: italic;
-        }
-
-        @media (max-width: 900px) {
-            .container {
-                grid-template-columns: 1fr;
-                gap: 32px;
-                padding: 16px;
-            }
-
-            .profile-sidebar {
-                margin-bottom: 8px;
-            }
-
-            .avatar {
-                width: 150px;
-                height: 150px;
-            }
-
-            .section-header {
-                margin-top: 24px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 24px;
-            }
-            
-            .review-stars {
-                margin-left: 0;
-                width: 100%;
-                margin-top: 4px;
-            }
+        .profile-list a {
+            word-break: break-all;
         }
     </style>
 </head>
-<body>
+<body class="py-4">
 
-    <div class="container">
-        <aside class="profile-sidebar">
-            <div class="avatar-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Profile Picture" class="avatar">
-            </div>
+    <div class="container-fluid container-custom">
+        <div class="row g-4">
             
-            <div class="names">
-                <span class="fullname">Karl Chastin Delfin</span>
-            </div>
-
-            <p class="bio">
-                Description.
-            </p>
-
-            <ul class="profile-details">
-                <li>
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    St. Dominic College of Asia
-                </li>
-                <li>
-                    <i class="fa-solid fa-location-dot"></i>
-                    Philippines
-                </li>
-                <li>
-                    <i class="fa-regular fa-clock"></i>
-                    GMT+8:00
-                </li>
-            </ul>
-
-            <div class="social-divider"></div>
-
-            <ul class="profile-details">
-                <li class="social-link">
-                    <a href="mailto:karlchastin.business@gmail.com">
-                        <i class="fa-regular fa-envelope"></i>
-                        karlchastin.business@gmail.com
-                    </a>
-                </li>
-                <li class="social-link">
-                    <a href="#">
-                        <i class="fa-brands fa-github"></i>
-                        github.com/karlchastin
-                    </a>
-                </li>
-                <li class="social-link">
-                    <a href="#">
-                        <i class="fa-brands fa-instagram"></i>
-                        @karlchastin
-                    </a>
-                </li>
-            </ul>
-        </aside>
-
-        <main class="content-area">
-            
-            <div class="section-header">
-                <h2 class="section-title">Webpages & Projects</h2>
-                <a href="#" class="view-more-btn">View more &gt;</a>
-            </div>
-
-            <div class="projects-grid">
+            <aside class="col-lg-3 col-md-4">
+                <div class="mb-3 text-md-start text-center">
+                    <img src="https://scontent.fmnl25-5.fna.fbcdn.net/v/t39.30808-6/537743387_24472261135738454_7979586795022802876_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=53a332&_nc_eui2=AeG1zihczmWdLFuje97P79VR3nKA17DslTnecoDXsOyVOUcVoKxkkWnwBWsamXwYTg8g2sHqvgMibyY3UOnQjYbD&_nc_ohc=DS0gzy7n7xsQ7kNvwFzwAUl&_nc_oc=AdosAIsUiYVrMRBQm6ZOOvSrn7Bhnq64fh6ZBXN2kvmk9yTV2woVewAkUhvzRb5TbtOptLaFeMhcZQz3r-QNr5tm&_nc_zt=23&_nc_ht=scontent.fmnl25-5.fna&_nc_gid=_SAsrvqvyz0e89eLMwxKeg&_nc_ss=7b2a8&oh=00_Af61e-z2aUWmfItWIZn2ZsrkFY8dVxQPCD-7Nmw5xBuRBg&oe=69FDB342" alt="Profile Picture" class="avatar-profile">
+                </div>
                 
-                <div class="project-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Preview" class="project-banner">
-                    <div class="card-body">
-                        <div class="project-header">
-                            <a href="#" class="project-title">Project 1</a>
-                        </div>
-                        <p class="project-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <div class="project-meta">
-                            <span>Project completion time</span>
-                        </div>
-                    </div>
+                <div class="mb-3">
+                    <h1 class="fs-4 fw-bold mb-0">Karl Chastin Delfin</h1>
                 </div>
 
-                <div class="project-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Preview" class="project-banner">
-                    <div class="card-body">
-                        <div class="project-header">
-                            <a href="#" class="project-title">Project 2</a>
-                        </div>
-                        <p class="project-desc">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        <div class="project-meta">
-                            <span>Project completion time</span>
-                        </div>
-                    </div>
-                </div>
+                <p class="mb-3">
+                    Tomeytow towmahtow, poteytow powtahtow.
+                </p>
 
-                <div class="project-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Preview" class="project-banner">
-                    <div class="card-body">
-                        <div class="project-header">
-                            <a href="#" class="project-title">Project 3</a>
-                        </div>
-                        <p class="project-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                        <div class="project-meta">
-                            <span>Project completion time</span>
-                        </div>
-                    </div>
-                </div>
+                <ul class="list-unstyled profile-list fs-6 text-muted-custom mb-3">
+                    <li class="mb-1"><i class="fa-solid fa-graduation-cap me-2"></i>St. Dominic College of Asia</li>
+                    <li class="mb-1"><i class="fa-solid fa-location-dot me-2"></i>Philippines</li>
+                    <li class="mb-1"><i class="fa-regular fa-clock me-2"></i>GMT+8:00</li>
+                </ul>
 
-                <div class="project-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Preview" class="project-banner">
-                    <div class="card-body">
-                        <div class="project-header">
-                            <a href="#" class="project-title">Project 4</a>
-                        </div>
-                        <p class="project-desc">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <div class="project-meta">
-                            <span>Project completion time</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section-header">
-                <h2 class="section-title">Reviews</h2>
-                <a href="#" class="view-more-btn">View more &gt;</a>
-            </div>
+                <hr class="border-custom my-3">
 
-            <div class="reviews-container">
+                <ul class="list-unstyled profile-list fs-6 mb-0">
+                    <li class="mb-2">
+                        <a href="mailto:karlchastin.business@gmail.com" class="text-dark text-decoration-none text-custom-link">
+                            <i class="fa-regular fa-envelope text-muted-custom me-2"></i>karlchastin.business@gmail.com
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-dark text-decoration-none text-custom-link">
+                            <i class="fa-brands fa-github text-muted-custom me-2"></i>github.com/karlchastin
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="#" class="text-dark text-decoration-none text-custom-link">
+                            <i class="fa-brands fa-instagram text-muted-custom me-2"></i>@karlchastin
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <main class="col-lg-9 col-md-8">
                 
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Reviewer" class="reviewer-img">
-                        <div class="reviewer-info">
-                            <span class="reviewer-name">Reviewer Name</span>
-                            <span class="review-role">Company Name</span>
-                        </div>
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="review-text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                <div class="d-flex justify-content-between align-items-end border-bottom border-custom pb-2 mb-3 mt-4 mt-md-0">
+                    <h2 class="fs-2 fw-bold mb-0">Webpages & Projects</h2>
+                    <a href="#" class="text-custom-link mb-1 text-nowrap">View more &gt;</a>
                 </div>
 
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Reviewer" class="reviewer-img">
-                        <div class="reviewer-info">
-                            <span class="reviewer-name">Reviewer Name</span>
-                            <span class="review-role">Company Name</span>
-                        </div>
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="review-text">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."</p>
-                </div>
-
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Reviewer" class="reviewer-img">
-                        <div class="reviewer-info">
-                            <span class="reviewer-name">Reviewer Name</span>
-                            <span class="review-role">Company Name</span>
-                        </div>
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <div class="row g-3 mb-5">
+                    
+                    <div class="col-lg-6">
+                        <div class="card h-100 border border-custom card-hover">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" class="card-img-top project-banner border-bottom border-custom" alt="Preview">
+                            <div class="card-body d-flex flex-column p-3">
+                                <a href="#" class="text-custom-link fw-bold d-block mb-2">Project 1</a>
+                                <p class="card-text text-muted-custom flex-grow-1" style="font-size: 13px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <div class="text-muted-custom mt-2" style="font-size: 12px;">Project completion time</div>
+                            </div>
                         </div>
                     </div>
-                    <p class="review-text">"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis."</p>
-                </div>
 
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Reviewer" class="reviewer-img">
-                        <div class="reviewer-info">
-                            <span class="reviewer-name">Reviewer Name</span>
-                            <span class="review-role">Company Name</span>
-                        </div>
-                        <div class="review-stars">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    <div class="col-lg-6">
+                        <div class="card h-100 border border-custom card-hover">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" class="card-img-top project-banner border-bottom border-custom" alt="Preview">
+                            <div class="card-body d-flex flex-column p-3">
+                                <a href="#" class="text-custom-link fw-bold d-block mb-2">Project 2</a>
+                                <p class="card-text text-muted-custom flex-grow-1" style="font-size: 13px;">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <div class="text-muted-custom mt-2" style="font-size: 12px;">Project completion time</div>
+                            </div>
                         </div>
                     </div>
-                    <p class="review-text">"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."</p>
+
+                    <div class="col-lg-6">
+                        <div class="card h-100 border border-custom card-hover">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" class="card-img-top project-banner border-bottom border-custom" alt="Preview">
+                            <div class="card-body d-flex flex-column p-3">
+                                <a href="#" class="text-custom-link fw-bold d-block mb-2">Project 3</a>
+                                <p class="card-text text-muted-custom flex-grow-1" style="font-size: 13px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                <div class="text-muted-custom mt-2" style="font-size: 12px;">Project completion time</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card h-100 border border-custom card-hover">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" class="card-img-top project-banner border-bottom border-custom" alt="Preview">
+                            <div class="card-body d-flex flex-column p-3">
+                                <a href="#" class="text-custom-link fw-bold d-block mb-2">Project 4</a>
+                                <p class="card-text text-muted-custom flex-grow-1" style="font-size: 13px;">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <div class="text-muted-custom mt-2" style="font-size: 12px;">Project completion time</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-end border-bottom border-custom pb-2 mb-3">
+                    <h2 class="fs-2 fw-bold mb-0">Reviews</h2>
+                    <a href="#" class="text-custom-link mb-1 text-nowrap">View more &gt;</a>
                 </div>
 
-            </div>
+                <div class="d-flex flex-column gap-3">
+                    
+                    <div class="card border border-custom p-3">
+                        <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Reviewer" class="avatar-reviewer">
+                            <div class="d-flex flex-column lh-1">
+                                <span class="fw-bold fs-6">Reviewer Name</span>
+                                <span class="text-muted-custom" style="font-size: 12px;">Company Name</span>
+                            </div>
+                            <div class="star-color ms-auto" style="font-size: 12px;">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="fst-italic mb-0" style="font-size: 14px;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+                    </div>
 
-        </main>
+                    <div class="card border border-custom p-3">
+                        <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Reviewer" class="avatar-reviewer">
+                            <div class="d-flex flex-column lh-1">
+                                <span class="fw-bold fs-6">Reviewer Name</span>
+                                <span class="text-muted-custom" style="font-size: 12px;">Company Name</span>
+                            </div>
+                            <div class="star-color ms-auto" style="font-size: 12px;">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="fst-italic mb-0" style="font-size: 14px;">"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit."</p>
+                    </div>
+
+                    <div class="card border border-custom p-3">
+                        <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Reviewer" class="avatar-reviewer">
+                            <div class="d-flex flex-column lh-1">
+                                <span class="fw-bold fs-6">Reviewer Name</span>
+                                <span class="text-muted-custom" style="font-size: 12px;">Company Name</span>
+                            </div>
+                            <div class="star-color ms-auto" style="font-size: 12px;">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="fst-italic mb-0" style="font-size: 14px;">"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis."</p>
+                    </div>
+
+                    <div class="card border border-custom p-3">
+                        <div class="d-flex align-items-center flex-wrap gap-2 mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PlaceholderLC.png" alt="Reviewer" class="avatar-reviewer">
+                            <div class="d-flex flex-column lh-1">
+                                <span class="fw-bold fs-6">Reviewer Name</span>
+                                <span class="text-muted-custom" style="font-size: 12px;">Company Name</span>
+                            </div>
+                            <div class="star-color ms-auto" style="font-size: 12px;">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="fst-italic mb-0" style="font-size: 14px;">"Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."</p>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

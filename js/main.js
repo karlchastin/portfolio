@@ -361,3 +361,27 @@ window.addEventListener('load', () => {
         enterPrompt.style.display = 'block';
     }
 }); 
+
+document.addEventListener('click', async (e) => {
+    const copyBtn = e.target.closest('.copy-cert-code-btn');
+    if (!copyBtn) return;
+
+    const verificationCode = copyBtn.getAttribute('data-code');
+    if (!verificationCode) return;
+
+    try {
+        await navigator.clipboard.writeText(verificationCode);
+
+        const originalSVG = copyBtn.innerHTML;
+        copyBtn.style.color = '#23a559';
+        copyBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 4px rgba(35,165,89,0.5));"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+
+        setTimeout(() => {
+            copyBtn.style.color = '';
+            copyBtn.innerHTML = originalSVG;
+        }, 1500);
+
+    } catch (err) {
+        console.error('Clipboard copy sequence failed:', err);
+    }
+});

@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=850">
     <title>karlchastin</title>
     <link rel="preload" href="./assets/Animated%20Background.gif" as="image">
-    
     <link rel="icon" type="image/webp" href="./assets/Website%20Logo.webp">
-    
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { corePlugins: { preflight: false } }
+    </script>
 </head>
 <body>
 
@@ -18,7 +21,7 @@
     <audio id="sfx-audio"><source src="./assets/Enter%20His%20Domain%20Sound%20Effect.mp3" type="audio/mpeg"></audio>
 
     <div id="enter-overlay">
-        <div id="loading-state" style="color: #fff; font-family: 'Onest', sans-serif; font-weight: 800; letter-spacing: 2px; font-size: 18px; text-align: center; animation: pulse 1.5s infinite;">
+        <div id="loading-state" class="text-white font-[Onest] font-extrabold tracking-widest text-lg text-center animate-pulse">
             LOADING...
         </div>
 

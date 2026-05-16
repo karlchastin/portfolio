@@ -11,12 +11,12 @@ export const defaultLayout = {
 export const profiles = {
     home: {
         avatar: "./assets/Home%20Tab%20Avatar.webp",
-        name: "chas", username: "", bio: "Tell me, do gods bleed?",
+        name: "Karl Chastin Delfin", username: "", bio: "Loading lyrics...",
         layout: { ...defaultLayout, showDiscord: true, showMusic: true, showLocHome: true, showDiscordStatus: true, showCards: ['card-2-container', 'card-3-container'] }
     },
     about: {
         avatar: "./assets/About%20Tab%20Avatar.webp",
-        name: "Karl Chastin Delfin", username: "@karlchastin",
+        name: "chas", username: "@karlchastin",
         bio: "I am an IT Student from St. Dominic College of Asia, primarily residing in Bacoor, Cavite. I enjoy modifying rather than creating.<br><br>I aspire to be able to understand everything about the internal workings of programs, and how to improve things for myself if I find a program that can't provide tools necessary for my use cases!",
         layout: { ...defaultLayout, showCards: [] }
     },
@@ -129,6 +129,3 @@ export const certificationsData = [
     { name: "Word Associate", desc: "Microsoft Office Specialist Certification", image: "./assets/certificate1.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" },
     { name: "PowerPoint Associate", desc: "Microsoft Office Specialist Certification", image: "./assets/certificate2.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" }
 ];
-
-export const emailAvatars = { personal: "https://lh3.googleusercontent.com/a/ACg8ocKT0TRPKQOi9HhhEUz48ZwapMWtuFTnsCNewew3vTrVOjs3F8jtsA=s1000-c", business: "https://lh3.googleusercontent.com/a/ACg8ocJuf1q6J2ASav0wtbSxzLmSrDjZybT3LGBTEtDgQb23oN7r7aJv=s1000-c", school: "https://lh3.googleusercontent.com/a/ACg8ocISwd6aSM0UDXFLqiKEuYtdiKtJw1TNDDA-J2rTI62UO7OGsfvH=s1000-c" };
-export const emailBios = { personal: "Reach out here for casual networking, personal inquiries, and general communication.", business: "For professional inquiries, freelance opportunities, and serious collaborations.", school: "Strictly for academic purposes, professor communications, and university matters." };

@@ -36,7 +36,7 @@ export async function swapData(tabName) {
     if (profileName) profileName.textContent = profileData.name;
     if (profileUsername) profileUsername.textContent = profileData.username;
     if (profileBio) {
-        profileBio.textContent = profileData.bio;
+        profileBio.innerHTML = profileData.bio;
         profileBio.style.minHeight = tabName === 'email' ? '86px' : '0px';
     }
 
@@ -48,39 +48,17 @@ export async function swapData(tabName) {
         'email-actions-wrapper': { show: newLayout.showEmailActions, type: 'block' },
         'loc-home': { show: newLayout.showLocHome, type: 'flex' },
         'loc-github': { show: newLayout.showLocGithub, type: 'inline-flex' },
-        'loc-steam': { show: newLayout.showLocSteam, type: 'inline-flex' },
-        'loc-discord': { show: newLayout.showLocDiscord, type: 'inline-flex' },
-        'loc-music': { show: newLayout.showLocMusic, type: 'inline-flex' },
-        'loc-instagram': { show: newLayout.showLocInsta, type: 'inline-flex' },
-        'loc-facebook': { show: newLayout.showLocFacebook, type: 'inline-flex' },
         'loc-time': { show: newLayout.showTimeLoc, type: 'flex' },
+        'discord-status-wrapper': { show: newLayout.showDiscordStatus, type: 'flex' },
         'github-achievements-wrapper': { show: newLayout.showGithubAchievements, type: 'block' },
-        'steam-activity-wrapper': { show: newLayout.showSteamActivity, type: 'flex' },
-        'steam-stats-wrapper': { show: newLayout.showSteamStats, type: 'block' },
         'github-repos': { show: newLayout.showGithubRepos, type: 'block' },
-        'steam-review-wrapper': { show: newLayout.showSteamReview, type: 'block' },
-        'discord-status-wrapper': { show: newLayout.showDiscordStatus, type: 'flex' }, 
-        'steam-status-wrapper': { show: newLayout.showSteamStatus, type: 'flex' }, 
-        'discord-badges-wrapper': { show: newLayout.showDiscordBadges, type: 'block' },
-        'discord-servers-wrapper': { show: newLayout.showDiscordServers, type: 'block' },
-        'apple-music-activity-wrapper': { show: newLayout.showMusicActivity, type: 'block' },
-        'music-playlists-wrapper': { show: newLayout.showMusicPlaylists, type: 'block' },
-        'instagram-highlights-wrapper': { show: newLayout.showInstaHighlights, type: 'block' },
-        'instagram-stats-wrapper': { show: newLayout.showInstaStats, type: 'block' },
-        'instagram-posts-wrapper': { show: newLayout.showInstaPosts, type: 'block' },
-        'facebook-stats-wrapper': { show: newLayout.showFacebookStats, type: 'block' },
-        'preferences-wrapper': { show: newLayout.showPreferences, type: 'block' }
+        'programming-languages-wrapper': { show: newLayout.showProgrammingLanguages, type: 'block' },
+        'certifications-wrapper': { show: newLayout.showCertifications, type: 'block' }
     };
 
     for (const [id, config] of Object.entries(displayMap)) {
         const el = document.getElementById(id);
         if (el) el.style.display = config.show ? config.type : 'none';
-    }
-
-    const elLevelDisplay = document.getElementById('steam-level-display');
-    if (elLevelDisplay) {
-        let cache = JSON.parse(localStorage.getItem('steamCache') || '{}');
-        elLevelDisplay.style.display = (tabName === 'steam' && cache.level && cache.level !== "--") ? 'flex' : 'none';
     }
 }
 
@@ -155,7 +133,6 @@ export function setupTabs() {
                 const shouldShow = card.id === 'main-profile-card' || targetCards.includes(card.id);
                 
                 let finalShow = shouldShow;
-                if (tabName === 'music' && card.id === 'card-3-container' && !window.currentMusicActivities) finalShow = false;
                 if (tabName === 'home' && card.id === 'card-2-container' && !window.currentDiscordActivities) finalShow = false;
                 
                 cardVisibility.set(card, finalShow);

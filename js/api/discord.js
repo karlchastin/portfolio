@@ -1,6 +1,6 @@
 import { formatElapsed } from '../utils/core.js';
 import { createScrollText, scrollObserver } from '../ui/scroll.js';
-import { DISCORD_ID, discordBadges, profiles } from '../config.js';
+import { DISCORD_ID } from '../config.js';
 
 let activeTimers = [];
 let lanyardWs;
@@ -56,33 +56,7 @@ function updateDiscordUI(data) {
     }
 
     activeTimers = []; 
-    const user = data.discord_user;
     
-    let avatarUrl = user.avatar ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith('a_') ? 'gif' : 'png'}?size=256` 
-        : `https://cdn.discordapp.com/embed/avatars/${(user.discriminator === "0" || user.discriminator === "0000") ? (Number(BigInt(user.id) >> 22n) % 6) : (parseInt(user.discriminator) % 5)}.png`;
-
-    profiles.discord.avatar = avatarUrl;
-    profiles.discord.name = user.global_name || user.username;
-    profiles.discord.username = `@${user.username}`;
-    
-    if (document.querySelector('.tab.active')?.getAttribute('data-tab') === 'discord') {
-        const avatarImg = document.getElementById('avatar-img');
-        const profileName = document.getElementById('profile-name');
-        const profileUsername = document.getElementById('profile-username');
-        if (avatarImg) avatarImg.src = avatarUrl;
-        if (profileName) profileName.textContent = profiles.discord.name;
-        if (profileUsername) profileUsername.textContent = profiles.discord.username;
-    }
-
-    const badgeContainer = document.getElementById('discord-badges-container');
-    if (badgeContainer) {
-        badgeContainer.innerHTML = discordBadges.map(b => {
-            let tt = b.name;
-            if (b.desc) tt += `<span class='tt-desc'>${b.desc}</span>`;
-            return `<div class="achievement-badge" data-tooltip="${tt.replace(/"/g, '&quot;')}"><img src="${b.icon}" alt="${b.name.replace(/"/g, '&quot;')}" onerror="this.style.display='none'"></div>`;
-        }).join('');
-    }
-
     let baseStatus = data.discord_status || 'offline'; 
     let isMobile = data.active_on_discord_mobile && !data.active_on_discord_desktop && !data.active_on_discord_web;
     let statusText = { online: isMobile ? "Active on Mobile" : "Online", idle: isMobile ? "Idle from Mobile" : "Idle", dnd: "Do Not Disturb", offline: "Offline" }[baseStatus] || "Offline";
@@ -321,19 +295,7 @@ function updateDiscordUI(data) {
         }
     }
 
-    const musicActs = activitiesList.filter(a => a.isMusic);
-    window.currentMusicActivities = musicActs.length > 0;
-    
     window.currentDiscordActivities = (baseStatus !== 'offline');
-    
-    const musicEl = document.getElementById('apple-music-dynamic-content');
-    if (musicEl && musicActs.length > 0) {
-        let flexGrid = musicEl.querySelector('.discord-activities-flex');
-        if (!flexGrid) {
-            musicEl.innerHTML = `<div class="discord-activities-flex" style="display: flex; gap: 15px; width: 100%;"><div id="apple-music-slot" style="flex: 1; min-width: 0; max-width: 100%;"></div></div>`;
-        }
-        renderSingleBox(musicEl.querySelector('#apple-music-slot'), musicActs[0]);
-    }
 
     scrollObserver.disconnect();
     document.querySelectorAll('.scroll-wrapper').forEach(el => scrollObserver.observe(el));

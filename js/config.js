@@ -1,16 +1,11 @@
 export const DISCORD_ID = "330950042863271936"; 
-export const WORKER_URL = 'https://steam-proxy.karlchastin-personal.workers.dev/'; 
 
 export const defaultLayout = {
-    showDiscord: false, showGithubStats: false, showLocMusic: false, 
+    showDiscord: false, showGithubStats: false, showMusic: false, 
     showGithubContribs: false, showGithubRepos: false, showLocHome: false, 
-    showLocGithub: false, showLocSteam: false, showLocDiscord: false, showTimeLoc: false, 
-    showEmailActions: false, showSteamExtra: false, showSteamActivity: false, 
-    showSteamStats: false, showGithubAchievements: false, showSteamReview: false, 
-    showDiscordStatus: false, showSteamStatus: false, showDiscordBadges: false, 
-    showDiscordServers: false, showMusicActivity: false, showMusicPlaylists: false, 
-    showInstaHighlights: false, showInstaStats: false, showLocInsta: false, showInstaPosts: false, 
-    showFacebookStats: false, showLocFacebook: false, showPreferences: false, showCards: []
+    showLocGithub: false, showTimeLoc: false, showEmailActions: false, 
+    showGithubAchievements: false, showProgrammingLanguages: false, 
+    showCertifications: false, showDiscordStatus: false, showCards: []
 };
 
 export const profiles = {
@@ -19,6 +14,12 @@ export const profiles = {
         name: "chas", username: "", bio: "Tell me, do gods bleed?",
         layout: { ...defaultLayout, showDiscord: true, showMusic: true, showLocHome: true, showDiscordStatus: true, showCards: ['card-2-container', 'card-3-container'] }
     },
+    about: {
+        avatar: "./assets/About%20Tab%20Avatar.webp",
+        name: "Karl Chastin Delfin", username: "@karlchastin",
+        bio: "I am an IT Student from St. Dominic College of Asia, primarily residing in Bacoor, Cavite. I enjoy modifying rather than creating.<br><br>I aspire to be able to understand everything about the internal workings of programs, and how to improve things for myself if I find a program that can't provide tools necessary for my use cases!",
+        layout: { ...defaultLayout, showCards: [] }
+    },
     github: {
         avatar: "https://avatars.githubusercontent.com/u/244555740?v=4", 
         name: "Karl Chastin Delfin", 
@@ -26,49 +27,23 @@ export const profiles = {
         bio: "Loading live GitHub profile...", 
         layout: { ...defaultLayout, showGithubStats: true, showGithubContribs: true, showGithubRepos: true, showLocGithub: true, showGithubAchievements: true, showCards: ['card-2-container', 'card-3-container', 'card-4-container'] }
     },
+    programming: {
+        avatar: "./assets/Languages%20Tab%20Avatar.webp",
+        name: "Karl Chastin Delfin", username: "@karlchastin",
+        bio: "These are the languages and technologies I am currently proficient in.",
+        layout: { ...defaultLayout, showProgrammingLanguages: true, showCards: ['card-2-container'] }
+    },
     email: {
         avatar: "https://lh3.googleusercontent.com/a/ACg8ocKT0TRPKQOi9HhhEUz48ZwapMWtuFTnsCNewew3vTrVOjs3F8jtsA=s1000-c",
         name: "Karl Chastin Delfin", username: "Choose your contact intention",
         bio: "You can hover over your preferred contact method, and select to be redirected to your default email provider.",
         layout: { ...defaultLayout, showTimeLoc: true, showEmailActions: true, showCards: ['card-2-container'] }
     },
-    steam: {
-        avatar: "./assets/Home%20Tab%20Avatar.webp",
-        name: "Loading...", username: "NotChztn",
-        bio: "Welcome to my Steam profile. Let's play some games.", 
-        layout: { ...defaultLayout, showLocSteam: true, showSteamExtra: true, showSteamActivity: true, showSteamStats: true, showSteamReview: true, showSteamStatus: true, showCards: ['card-2-container', 'card-3-container', 'card-4-container'] }
-    },
-    discord: {
-        avatar: "./assets/Home%20Tab%20Avatar.webp",
-        name: "Discord", username: "@chas",
-        bio: "i refuse.",
-        layout: { ...defaultLayout, showLocDiscord: true, showDiscordStatus: true, showDiscordBadges: true, showDiscordServers: true, showCards: ['card-4-container'] }
-    },
-    music: {
-        avatar: "./assets/Apple%20Music%20Avatar.webp",
+    certifications: {
+        avatar: "./assets/Certifications%20Tab%20Avatar.webp",
         name: "Karl Chastin Delfin", username: "@karlchastin",
-        bio: "i am not responsible for these playlist names, they're just funny.",
-        layout: { ...defaultLayout, showLocMusic: true, showMusicActivity: true, showMusicPlaylists: true, showCards: ['card-3-container', 'card-4-container'] }
-    },
-    instagram: {
-        avatar: "./assets/Home%20Tab%20Avatar.webp", 
-        name: "Loading...", 
-        username: "@karlchastin",
-        bio: "Loading live Instagram profile...",
-        layout: { ...defaultLayout, showLocInsta: true, showInstaStats: true, showInstaHighlights: true, showInstaPosts: true, showCards: ['card-2-container', 'card-3-container', 'card-4-container'] }
-    },
-    facebook: {
-        avatar: "./assets/Home%20Tab%20Avatar.webp", 
-        name: "Loading...", 
-        username: "Facebook",
-        bio: "Loading live Facebook profile...",
-        layout: { ...defaultLayout, showLocFacebook: true, showFacebookStats: true, showCards: ['card-3-container'] }
-    },
-    preferences: {
-        avatar: "./assets/Home%20Tab%20Avatar.webp",
-        name: "Preferences", username: "System Settings",
-        bio: "My per-game preferences, mod configurations, and custom setups.",
-        layout: { ...defaultLayout, showPreferences: true, showCards: ['card-2-container'] }
+        bio: "My professional IT certifications and achievements.",
+        layout: { ...defaultLayout, showCertifications: true, showCards: ['card-2-container'] }
     }
 };
 
@@ -143,30 +118,17 @@ export const featuredRepos = [
     { name: "Project Salvation", idName: "Project-Salvation", desc: "\"Project Salvation\" is an independent Roblox passion project, heavily inspired by survival horror pioneers.", private: true, banner: "linear-gradient(90deg, #1a1a1a, #4d0000)" }
 ];
 
-export const featuredServers = [
-    { name: "World Peace Control Organization", desc: "A group from the Roblox game \"SCP: Roleplay\". Chas' main line of work by building in-game headquarters.", url: "https://discord.gg/hDXQuyfsgn", btnText: "JOIN DISCORD SERVER", banner: "linear-gradient(90deg, #1e3c72, #2a5298)" },
-    { name: "server ni chas :3c", desc: "[Retired] A server for chas and his friends!", btnText: "NO LONGER AVAILABLE", banner: "linear-gradient(90deg, #4b134f, #c94b4b)" },
-    { name: "Project Salvation's Community Server", desc: "A Discord Server for the active development of the Roblox game \"Project Salvation\"", btnText: "PRIVATE SERVER", banner: "linear-gradient(90deg, #1a1a1a, #4d0000)" }
+export const knownLanguages = [
+    { name: "C", desc: "System-level programming and logical structuring.", icon: "./assets/C.webp" },
+    { name: "JavaScript", desc: "Front-end and back-end logic, dynamic web elements.", icon: "./assets/JavaScript.webp" },
+    { name: "CSS", desc: "Styling, layouts, animations, and transitions.", icon: "./assets/CSS.webp" },
+    { name: "HTML", desc: "Web structure and semantic element handling.", icon: "./assets/HTML.webp" }
 ];
 
-export const appleMusicPlaylists = [
-    { name: "songs that makes me a white girl.", desc: "there literally isn't a better description here.", url: "https://music.apple.com/ph/playlist/songs-that-makes-me-a-white-girl/pl.u-qxylEMMsd7K3xbN", btnText: "LISTEN ON APPLE MUSIC", banner: "linear-gradient(90deg, #fa243c, #ff5e7e)" },
-    { name: "songs i'd fuck you with.", desc: "that's a joke, by the way.", url: "https://music.apple.com/ph/playlist/songs-id-fuck-you-with/pl.u-zPyLl3vu85Xe2RG", btnText: "LISTEN ON APPLE MUSIC", banner: "linear-gradient(90deg, #8e2de2, #4a00e0)" }
-];
-
-export const instagramHighlights = [
-    { title: "who", url: "https://www.instagram.com/stories/highlights/18111878254779115/", preview: "./assets/Instagram%20Highlight%20Thumbnail%20-%20who.webp" },
-    { title: "what", url: "https://www.instagram.com/stories/highlights/18080284970579574/", preview: "./assets/Instagram%20Highlight%20Thumbnail%20-%20what.webp" },
-    { title: "where", url: "https://www.instagram.com/stories/highlights/17886587631351183/", preview: "./assets/Instagram%20Highlight%20Thumbnail%20-%20where.webp" }
+export const certificationsData = [
+    { name: "Word Associate", desc: "Microsoft Office Specialist Certification", image: "./assets/certificate1.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" },
+    { name: "PowerPoint Associate", desc: "Microsoft Office Specialist Certification", image: "./assets/certificate2.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" }
 ];
 
 export const emailAvatars = { personal: "https://lh3.googleusercontent.com/a/ACg8ocKT0TRPKQOi9HhhEUz48ZwapMWtuFTnsCNewew3vTrVOjs3F8jtsA=s1000-c", business: "https://lh3.googleusercontent.com/a/ACg8ocJuf1q6J2ASav0wtbSxzLmSrDjZybT3LGBTEtDgQb23oN7r7aJv=s1000-c", school: "https://lh3.googleusercontent.com/a/ACg8ocISwd6aSM0UDXFLqiKEuYtdiKtJw1TNDDA-J2rTI62UO7OGsfvH=s1000-c" };
 export const emailBios = { personal: "Reach out here for casual networking, personal inquiries, and general communication.", business: "For professional inquiries, freelance opportunities, and serious collaborations.", school: "Strictly for academic purposes, professor communications, and university matters." };
-
-export const discordBadges = [
-    { name: "Nitro Platinum", desc: "Subscriber since 3/12/25", icon: "https://cdn.discordapp.com/badge-icons/0334688279c8359120922938dcb1d6f8.png" },
-    { name: "Hypesquad Bravery", icon: "https://cdn.discordapp.com/badge-icons/8a88d63823d8a71cd5e390baa45efa02.png" },
-    { name: "Server Boosting", desc: "Since Mar 31, 2026", icon: "https://cdn.discordapp.com/badge-icons/51040c70d4f20a921ad6674ff86fc95c.png" },
-    { name: "Completed a Quest", icon: "https://cdn.discordapp.com/badge-icons/7d9ae358c8c5e118768335dbe68b4fb8.png" }, 
-    { name: "Orbs", desc: "Apprentice", icon: "https://cdn.discordapp.com/badge-icons/83d8a1eb09a8d64e59233eec5d4d5c2d.png" } 
-];

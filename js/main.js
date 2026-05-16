@@ -1,15 +1,11 @@
 import { injectIcons } from './ui/icons.js';
-import { WORKER_URL, profiles } from './config.js';
+import { profiles } from './config.js';
 import { setupTabs, swapData, isAnimating as isTabsAnimating } from './ui/tabs.js';
 import { syncBackgrounds } from './ui/animations.js';
 import { setupUIEvents } from './ui/events.js';
 import { renderAllComponents } from './ui/components.js';
 import { prefetchGitHubProfile, updateGitHubData } from './api/github.js';
-import { updateSteamData } from './api/steam.js';
 import { connectLanyard } from './api/discord.js';
-import { loadInstagramData } from './api/instagram.js';
-import { loadFacebookData } from './api/facebook.js';
-import { updateDBDData, updateValorantData, updateApexData, fetchOverwatchLiveStats } from './api/games.js';
 
 function preloadAssets() {
     Object.values(profiles).forEach(p => {
@@ -85,19 +81,7 @@ function refreshDynamicCard(cardId, targetTab, isActiveGetter) {
     }
 }
 
-window.refreshMusicCard = () => refreshDynamicCard('card-3-container', 'music', () => window.currentMusicActivities);
 window.refreshDiscordCard = () => refreshDynamicCard('card-2-container', 'home', () => window.currentDiscordActivities);
-
-let _musicActive = window.currentMusicActivities || false;
-Object.defineProperty(window, 'currentMusicActivities', {
-    get: () => _musicActive,
-    set: (val) => {
-        if (_musicActive !== val) {
-            _musicActive = val;
-            setTimeout(window.refreshMusicCard, 10); 
-        }
-    }
-});
 
 let _discordActive = window.currentDiscordActivities ?? true;
 Object.defineProperty(window, 'currentDiscordActivities', {
@@ -170,140 +154,13 @@ function attachGlobalHeightObservers() {
     });
 }
 
-function setupPreferencesTabs() {
-    const prefTabs = document.querySelectorAll('.pref-tab');
-    let isPrefAnimating = false;
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-
-    prefTabs.forEach(tab => {
-        tab.addEventListener('click', async (e) => {
-            e.preventDefault();
-            if (isPrefAnimating || tab.classList.contains('active') || window.isAppAnimating()) return;
-            isPrefAnimating = true;
-
-            const originalIsAppAnimating = window.isAppAnimating;
-            window.isAppAnimating = () => true; 
-
-            const targetId = 'pref-' + tab.dataset.pref;
-            const newContent = document.getElementById(targetId);
-            const oldContent = document.querySelector('.pref-content.active');
-            const oldTab = document.querySelector('.pref-tab.active');
-            const card = document.getElementById('card-2-container');
-
-            const currentHeight = card.offsetHeight;
-            card.style.transition = 'none';
-            card.style.height = currentHeight + 'px';
-            card.style.overflow = 'clip';
-            card.style.overflowClipMargin = '150px';
-            void card.offsetHeight;
-
-            if (oldContent) {
-                oldContent.style.transition = 'opacity 0.15s ease';
-                oldContent.style.opacity = '0';
-            }
-            await delay(150);
-
-            if (oldTab) oldTab.classList.remove('active');
-            await delay(500);
-
-            if (oldContent) {
-                oldContent.classList.remove('active');
-                oldContent.style.transition = '';
-                oldContent.style.opacity = '';
-            }
-            
-            newContent.style.opacity = '0';
-            newContent.classList.add('active');
-
-            card.style.height = 'auto';
-            card.style.overflow = 'visible';
-            const targetHeight = card.offsetHeight;
-            
-            card.style.height = currentHeight + 'px';
-            card.style.overflow = 'clip';
-            card.style.overflowClipMargin = '150px';
-            void card.offsetHeight;
-
-            tab.classList.add('active');
-            card.style.transition = 'height 0.65s cubic-bezier(0.25, 1, 0.5, 1), margin 0.65s cubic-bezier(0.25, 1, 0.5, 1), padding 0.65s cubic-bezier(0.25, 1, 0.5, 1)';
-            card.style.height = targetHeight + 'px';
-
-            await delay(600);
-
-            newContent.style.transition = 'opacity 0.3s ease';
-            newContent.style.opacity = '1';
-            await delay(300);
-
-            card.style.transition = '';
-            card.style.height = 'auto';
-            card.style.overflow = 'visible';
-            card.style.overflowClipMargin = '';
-            newContent.style.transition = '';
-            newContent.style.opacity = '';
-            
-            window.isAppAnimating = originalIsAppAnimating;
-            isPrefAnimating = false;
-        });
-    });
-
-    const subPrefTabs = document.querySelectorAll('.sub-pref-tab');
-    let isSubPrefAnimating = false;
-
-    subPrefTabs.forEach(tab => {
-        tab.addEventListener('click', async (e) => {
-            e.preventDefault();
-            if (isSubPrefAnimating || tab.classList.contains('active')) return;
-            isSubPrefAnimating = true;
-
-            const parent = tab.closest('.pref-content');
-            const targetId = 'subpref-' + tab.dataset.subpref;
-            const newContent = document.getElementById(targetId);
-            const oldContent = parent.querySelector('.sub-pref-content.active');
-            const oldTab = parent.querySelector('.sub-pref-tab.active');
-
-            if (oldContent) {
-                oldContent.style.transition = 'opacity 0.15s ease';
-                oldContent.style.opacity = '0';
-            }
-            
-            await delay(150);
-
-            if (oldTab) oldTab.classList.remove('active');
-            tab.classList.add('active');
-
-            if (oldContent) {
-                oldContent.classList.remove('active');
-                oldContent.style.transition = '';
-                oldContent.style.opacity = '';
-            }
-
-            newContent.style.opacity = '0';
-            newContent.classList.add('active');
-
-            void newContent.offsetWidth;
-
-            newContent.style.transition = 'opacity 0.25s ease';
-            newContent.style.opacity = '1';
-
-            await delay(250);
-
-            newContent.style.transition = '';
-            newContent.style.opacity = '';
-
-            isSubPrefAnimating = false;
-        });
-    });
-}
-
 try {
     injectIcons(); 
     preloadAssets();
     renderAllComponents(); 
     setupTabs();
     setupUIEvents();
-    setupPreferencesTabs();
     attachGlobalHeightObservers();
-    loadFacebookData();
 } catch (e) {
     console.error("UI Initialization Error:", e);
 }
@@ -436,14 +293,7 @@ if (enterBtn) {
 try {
     prefetchGitHubProfile();
     updateGitHubData();
-    updateSteamData();
     connectLanyard(); 
-    loadInstagramData();
-
-    updateDBDData();
-    updateValorantData();
-    updateApexData();
-    fetchOverwatchLiveStats('https://overwatch.blizzard.com/en-us/career/d156b69ebd3ccaffbfa9%7Cf27cbe61960ce0f2f4d04c2ebe83a618/');
 
     swapData('home'); 
     
@@ -475,28 +325,27 @@ setInterval(() => {
 setInterval(() => {
     if (document.hidden) return;
     const activeTabNode = document.querySelector('.tab.active');
-    const activeTab = activeTabNode ? activeTabNode.getAttribute('data-tab') : null;
-    if(activeTab === 'steam') {
-        fetch(`${WORKER_URL}?route=status`)
-            .then(res => res.json())
-            .then(data => {
-                if (!data.error && data.stateMessage) {
-                    const statusEl = document.getElementById('steam-live-status');
-                    if (statusEl) { 
-                        statusEl.innerHTML = data.stateMessage; 
-                        statusEl.className = `steam-status ${data.onlineState}`; 
-                    }
-                }
-            }).catch(() => {});
-    }
-}, 5000);
-
-setInterval(() => {
-    if (document.hidden) return;
-    const activeTabNode = document.querySelector('.tab.active');
     const activeTab = activeTabNode ? activeTabNode.getAttribute('data-tab') : 'home';
     const activeLayout = profiles[activeTab]?.layout || profiles.home.layout;
     
     if (activeLayout.showGithubStats) updateGitHubData();
-    if (activeLayout.showSteamExtra) updateSteamData();
 }, 60000);
+
+const lightbox = document.getElementById('image-lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxClose = document.querySelector('.lightbox-close');
+
+if (lightbox && lightboxImg) {
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('cert-preview-btn')) {
+            lightboxImg.src = e.target.src;
+            lightbox.style.display = 'flex';
+            requestAnimationFrame(() => lightbox.classList.add('show'));
+        }
+        
+        if (e.target === lightbox || e.target === lightboxClose) {
+            lightbox.classList.remove('show');
+            setTimeout(() => lightbox.style.display = 'none', 300);
+        }
+    });
+}

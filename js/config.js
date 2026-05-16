@@ -125,6 +125,9 @@ export const knownLanguages = [
     { name: "HTML", desc: "Web structure and semantic element handling.", icon: "./assets/HTML.webp" }
 ];
 
+export const emailAvatars = { personal: "https://lh3.googleusercontent.com/a/ACg8ocKT0TRPKQOi9HhhEUz48ZwapMWtuFTnsCNewew3vTrVOjs3F8jtsA=s1000-c", business: "https://lh3.googleusercontent.com/a/ACg8ocJuf1q6J2ASav0wtbSxzLmSrDjZybT3LGBTEtDgQb23oN7r7aJv=s1000-c", school: "https://lh3.googleusercontent.com/a/ACg8ocISwd6aSM0UDXFLqiKEuYtdiKtJw1TNDDA-J2rTI62UO7OGsfvH=s1000-c" };
+export const emailBios = { personal: "Reach out here for casual networking, personal inquiries, and general communication.", business: "For professional inquiries, freelance opportunities, and serious collaborations.", school: "Strictly for academic purposes, professor communications, and university matters." };
+
 export const certificationsData = [
     { name: "Word Associate", desc: "wCWNn-48SH", image: "./assets/certificate1.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" },
     { name: "PowerPoint Associate", desc: "wyDx6-48Xu", image: "./assets/certificate2.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" }

@@ -361,22 +361,3 @@ window.addEventListener('load', () => {
         enterPrompt.style.display = 'block';
     }
 }); 
-
-const mainAvatar = document.getElementById('avatar-img');
-if (mainAvatar) {
-    mainAvatar.style.cursor = 'pointer';
-    mainAvatar.addEventListener('click', () => {
-        Swal.fire({
-            title: 'Welcome to my Domain',
-            text: 'Thank you for checking out my portfolio!',
-            imageUrl: mainAvatar.src,
-            imageWidth: 100,
-            imageHeight: 100,
-            imageAlt: 'Profile Avatar',
-            background: 'rgba(17, 17, 17, 0.9)',
-            color: '#fff',
-            confirmButtonColor: '#ff0000',
-            backdrop: `rgba(0,0,0,0.6)`
-        });
-    });
-}

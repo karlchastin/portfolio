@@ -17,7 +17,7 @@ export const profiles = {
     about: {
         avatar: "./assets/About%20Tab%20Avatar.webp",
         name: "chas", username: "@karlchastin",
-        bio: "I am an IT Student from St. Dominic College of Asia, primarily residing in Bacoor, Cavite. I enjoy modifying rather than creating.<br><br>I aspire to be able to understand everything about the internal workings of programs, and how to improve things for myself if I find a program that can't provide tools necessary for my use cases!",
+        bio: "Hi! I'm Chas! I am an IT Student from St. Dominic College of Asia, and I'm primarily residing in Bacoor, Cavite. If there's something that I enjoy doing, I enjoy modifying and customizing rather than creating new things from scratch.<br><br>I aspire to be able to understand everything about the internal workings of programs, and how to improve things for myself if I find a program that can't provide tools necessary for my use cases!",
         layout: { ...defaultLayout, showCards: [] }
     },
     github: {
@@ -126,6 +126,6 @@ export const knownLanguages = [
 ];
 
 export const certificationsData = [
-    { name: "Word Associate", desc: "Microsoft Office Specialist Certification", image: "./assets/certificate1.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" },
-    { name: "PowerPoint Associate", desc: "Microsoft Office Specialist Certification", image: "./assets/certificate2.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" }
+    { name: "Word Associate", desc: "wCWNn-48SH", image: "./assets/certificate1.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" },
+    { name: "PowerPoint Associate", desc: "wyDx6-48Xu", image: "./assets/certificate2.webp", btnText: "VERIFY", url: "https://www.certiport.com/portal/pages/credentialverification.aspx" }
 ];

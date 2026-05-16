@@ -16,7 +16,7 @@ export const profiles = {
     },
     about: {
         avatar: "./assets/About%20Tab%20Avatar.webp",
-        name: "chas", username: "@karlchastin",
+        name: "chas", username: "",
         bio: "Hi! I'm Chas! I am an IT Student from St. Dominic College of Asia, and I'm primarily residing in Bacoor, Cavite. If there's something that I enjoy doing, I enjoy modifying and customizing rather than creating new things from scratch.<br><br>I aspire to be able to understand everything about the internal workings of programs, and how to improve things for myself if I find a program that can't provide tools necessary for my use cases!",
         layout: { ...defaultLayout, showCards: [] }
     },
@@ -29,8 +29,8 @@ export const profiles = {
     },
     programming: {
         avatar: "./assets/Languages%20Tab%20Avatar.webp",
-        name: "Karl Chastin Delfin", username: "@karlchastin",
-        bio: "These are the languages and technologies I am currently proficient in.",
+        name: "mr hackerman", username: "",
+        bio: "These are the languages and technologies I am currently \"okay\" in.",
         layout: { ...defaultLayout, showProgrammingLanguages: true, showCards: ['card-2-container'] }
     },
     email: {
@@ -41,8 +41,8 @@ export const profiles = {
     },
     certifications: {
         avatar: "./assets/Certifications%20Tab%20Avatar.webp",
-        name: "Karl Chastin Delfin", username: "@karlchastin",
-        bio: "My professional IT certifications and achievements.",
+        name: "Karl Chastin Delfin", username: "",
+        bio: "My IT certifications and achievements.",
         layout: { ...defaultLayout, showCertifications: true, showCards: ['card-2-container'] }
     }
 };

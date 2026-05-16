@@ -350,6 +350,18 @@ if (lightbox && lightboxImg) {
     });
 }
 
+window.addEventListener('load', () => {
+    const loadingState = document.getElementById('loading-state');
+    const enterPrompt = document.getElementById('enter-prompt');
+    
+    if (loadingState) {
+        loadingState.style.display = 'none';
+    }
+    if (enterPrompt) {
+        enterPrompt.style.display = 'block';
+    }
+}); 
+
 const mainAvatar = document.getElementById('avatar-img');
 if (mainAvatar) {
     mainAvatar.style.cursor = 'pointer';

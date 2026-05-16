@@ -18,7 +18,11 @@
     <audio id="sfx-audio"><source src="./assets/Enter%20His%20Domain%20Sound%20Effect.mp3" type="audio/mpeg"></audio>
 
     <div id="enter-overlay">
-        <div class="enter-prompt-wrapper">
+        <div id="loading-state" style="color: #fff; font-family: 'Onest', sans-serif; font-weight: 800; letter-spacing: 2px; font-size: 18px; text-align: center; animation: pulse 1.5s infinite;">
+            LOADING...
+        </div>
+
+        <div class="enter-prompt-wrapper" id="enter-prompt" style="display: none;">
             <h2 class="confess-title">DO YOU CONFESS?</h2>
             <button id="enter-btn" data-glitch="ENTER HIS DOMAIN">
                 <span class="glitch-text hover-only" data-glitch="ENTER">ENTER</span> 
